@@ -46,6 +46,8 @@ int main() {
 
   //Con este if sabremos que menú mostrar
   if(puesto == 1){
+    system("clear");
+    printf("%s\n", "Hola Administrador espero esté teniendo un lindo dia. :)");
     printf("%s\n", "(1) Mostrar Lista de Productos" );
     printf("%s\n", "(2) Mostrar Productos" );
     printf("%s\n", "(3) Modificar Productos" );
@@ -68,10 +70,24 @@ int main() {
   }
 
   if(puesto == 2){
+    system("clear");
+    printf("%s\n", "Hola espero que tengas suerte en tus ventas. :D" );
     printf("%s\n", "(1) Mostrar Lista de Productos" );
     printf("%s\n", "(2) Mostrar Producto" );
     printf("%s\n", "(3) Vender Producto" );
     printf("%s\n", "(4) Salir" );
+
+    //Switch que nos mandará a las funciones depende de lo seleccionado por usr
+    switch(opcion){
+      case 1:
+        mostrarListaProductos(c);
+        break;
+/*      case 2:
+      case 3:
+      case 4:
+      case 5:
+      case 6:*/
+    }
   }
 }
 
