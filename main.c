@@ -2,6 +2,39 @@
 #include <stdlib.h>
 #include <string.h>
 
+//Apartado donde se encuentran las funciones que utilizaremos en el programa
+
+//Función que nos da el mensaje principal
+void bienvenida(){
+  //Imprimiendo mensajes de Bienvenida al usuario.
+  system("clear");
+  printf("%s\n", "Hola bienvenido" );
+  printf("%s\n", "Indicanos tu puesto");
+  printf("%s\n", " ");
+  printf("%s\n", " ");
+  printf("%s\n", "(1) Administrador");
+  printf("%s\n", "(2) Vendedor");
+}
+
+//Funcion que muestra toda la lista completa de productos
+void mostrarListaProductos(int c){
+
+  FILE *lista;
+  lista = fopen("archivo.txt","r");
+
+  //Si el archivo no está vacio entra a imprimir de lo contrario mandará error
+  if(lista != NULL){
+    printf("%s\n", "---------------------MOSTRANDO LISTA DE PRODUCTOS--------------------");
+    while((c=fgetc(lista))!=EOF){
+      putchar(c);
+    }
+  }else{
+    printf("%s\n", "ERROR");
+    bienvenida();
+  }
+  fclose(lista); //Cerramos el archivo para que no existan problemas.
+}
+
 int main() {
 
   //Declaración de variables que vamos a usar.
@@ -20,6 +53,7 @@ int main() {
     printf("%s\n", "(5) Eliminar Producto" );
     printf("%s\n", "(6) Salir");
     scanf("%d" , &opcion);
+
     //Switch que nos mandará a las funciones depende de lo seleccionado por usr
     switch(opcion){
       case 1:
@@ -41,32 +75,3 @@ int main() {
   }
 }
 
-//Función que nos da el mensaje principal
-void bienvenida(){
-  //Imprimiendo mensajes de Bienvenida al usuario.
-  system("clear");
-  printf("%s\n", "Hola bienvenido" );
-  printf("%s\n", "Indicanos tu puesto");
-  printf("%s\n", " ");
-  printf("%s\n", " ");
-  printf("%s\n", "(1) Administrador");
-  printf("%s\n", "(2) Vendedor");
-}
-
-void mostrarListaProductos(int c){
-
-  FILE *lista;
-  lista = fopen("archivo.txt","r");
-
-  //Si el archivo no está vacio entra a imprimir de lo contrario mandará error
-  if(lista != NULL){
-    printf("%s\n", "---------------------MOSTRANDO LISTA DE PRODUCTOS--------------------");
-    while((c=fgetc(lista))!=EOF){
-      putchar(c);
-    }
-  }else{
-    printf("%s\n", "ERROR");
-    bienvenida();
-  }
-  fclose(lista); //Cerramos el archivo para que no existan problemas.
-}
