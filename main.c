@@ -2,6 +2,15 @@
 #include <stdlib.h>
 #include <string.h>
 
+//Apartado para la declaración y creación de Structs
+typedef struct Producto{ 
+  int id;
+  char nombre[20];
+  char descripcion[100];
+  int cantidad;
+  int flag; 
+}Producto;
+
 //Apartado donde se encuentran las funciones que utilizaremos en el programa
 
 //Función que nos da el mensaje principal
@@ -35,10 +44,34 @@ void mostrarListaProductos(int c){
   fclose(lista); //Cerramos el archivo para que no existan problemas.
 }
 
+//Funcion para escribir en el archivo txt
+void escribir(Producto* p){ 
+  FILE *pf;
+  pf=fopen("archivo.txt", "w");
+  if(pf!=NULL){ //Acciones int i=0;
+    while(i<longitud){
+      if(p[i].flag==1){
+        fprintf(pf,"%d\n",p[i].id);
+        fputs(p[i].nombre,pf);
+        fprintf(pf,"\n");
+        fputs(p[i].descripcion,pf);
+        fprintf(pf,"\n");
+        fprintf(pf,"%d\n",p[i].cantidad);
+        fprintf(pf,"%d\n",p[i].flag);
+        i++;
+      }
+    }
+  }else{
+    //Mensaje de error fclose(pf);
+  }
+  fclose(pf);
+}
+
 int main() {
 
   //Declaración de variables que vamos a usar.
   int puesto,opcion,c;
+  Producto *p;
 
   //Llamando al Mensaje Principal y guardando respuesta de usuario
   bienvenida();
@@ -96,4 +129,3 @@ int main() {
     }
   }
 }
-
