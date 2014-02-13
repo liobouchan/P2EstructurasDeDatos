@@ -11,6 +11,9 @@ typedef struct Producto{
   int flag; 
 }Producto;
 
+  //Asignación de valores
+  int longitud = 10;
+
 //Apartado donde se encuentran las funciones que utilizaremos en el programa
 
 //Función que nos da el mensaje principal
@@ -47,6 +50,7 @@ void mostrarListaProductos(int c){
 //Funcion para escribir en el archivo txt
 void escribir(Producto* p){ 
   FILE *pf;
+  int i = 0;
   pf=fopen("archivo.txt", "w");
   if(pf!=NULL){ //Acciones int i=0;
     while(i<longitud){
@@ -67,11 +71,26 @@ void escribir(Producto* p){
   fclose(pf);
 }
 
+//Funcion para el llenado de Archivos
+void llenar(){
+  int i;
+  Producto productos[longitud];
+
+  for(i=0; i<=5; i++){
+    productos[i].id = 0 + i;
+    strcpy(productos[i].nombre,"Juego");
+    strcpy(productos[i].descripcion,"Descripcion");
+    productos[i].cantidad = i ;
+    productos[i].flag = 1;
+    i++;
+  }
+}
+
 int main() {
 
   //Declaración de variables que vamos a usar.
-  int puesto,opcion,c;
-  Producto *p;
+  int puesto,opcion,c,i,longitud;
+  Producto productos[longitud],*p;
 
   //Llamando al Mensaje Principal y guardando respuesta de usuario
   bienvenida();
