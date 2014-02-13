@@ -18,6 +18,17 @@ int main() {
     printf("%s\n", "(4) Actualizar Productos" );
     printf("%s\n", "(5) Eliminar Producto" );
     printf("%s\n", "(6) Salir");
+    scanf("%d" , &opcion);
+    switch(opcion){
+      case 1:
+        printf("%s\n","huevos" );
+        break;
+      case 2:
+      case 3:
+      case 4:
+      case 5:
+      case 6:
+    }
   }
 
   if(puesto == 2){
@@ -38,4 +49,8 @@ void bienvenida(){
   printf("%s\n", " ");
   printf("%s\n", "(1) Administrador");
   printf("%s\n", "(2) Vendedor");
+}
+
+void mostrarListaProductos(){
+  
 }
