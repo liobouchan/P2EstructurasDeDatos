@@ -3,10 +3,11 @@
 #include <string.h>
 
 int main() {
-  //Declaración de variables que vamos a usar.
-  int puesto,opcion;
 
-  //Llamando al Mensaje Principal
+  //Declaración de variables que vamos a usar.
+  int puesto,opcion,c;
+
+  //Llamando al Mensaje Principal y guardando respuesta de usuario
   bienvenida();
   scanf("%d" , &puesto);
 
@@ -19,15 +20,16 @@ int main() {
     printf("%s\n", "(5) Eliminar Producto" );
     printf("%s\n", "(6) Salir");
     scanf("%d" , &opcion);
+    //Switch que nos mandará a las funciones depende de lo seleccionado por usr
     switch(opcion){
       case 1:
-        printf("%s\n","huevos" );
+        mostrarListaProductos(c);
         break;
-      case 2:
+/*      case 2:
       case 3:
       case 4:
       case 5:
-      case 6:
+      case 6:*/
     }
   }
 
@@ -51,6 +53,19 @@ void bienvenida(){
   printf("%s\n", "(2) Vendedor");
 }
 
-void mostrarListaProductos(){
-  
+void mostrarListaProductos(int c){
+
+  FILE *lista;
+  lista = fopen("/home/liodebian/Code/P2EstructurasDeDatos/archivo.txt","r");
+
+  //Si el archivo no está vacio entra a imprimir de lo contrario mandará error
+  if(lista != NULL){
+    while((c=fgetc(lista))!=EOF){
+      putchar(c);
+    }
+  }else{
+    printf("%s\n", "ERROR");
+    bienvenida();
+  }
+  fclose(lista); //Cerramos el archivo para que no existan problemas.
 }
