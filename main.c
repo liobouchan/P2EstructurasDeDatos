@@ -56,10 +56,11 @@ void bienvenida(){
 void mostrarListaProductos(int c){
 
   FILE *lista;
-  lista = fopen("/home/liodebian/Code/P2EstructurasDeDatos/archivo.txt","r");
+  lista = fopen("archivo.txt","r");
 
   //Si el archivo no está vacio entra a imprimir de lo contrario mandará error
   if(lista != NULL){
+    printf("%s\n", "---------------------MOSTRANDO LISTA DE PRODUCTOS--------------------");
     while((c=fgetc(lista))!=EOF){
       putchar(c);
     }
