@@ -61,11 +61,16 @@ int main() {
       case 1:
         mostrarListaProductos(c);
         break;
-/*      case 2:
+      case 2:
+        break;
       case 3:
+        break;
       case 4:
+        break;
       case 5:
-      case 6:*/
+        break;
+      case 6:
+        break;
     }
   }
 
@@ -82,11 +87,12 @@ int main() {
       case 1:
         mostrarListaProductos(c);
         break;
-/*      case 2:
+      case 2:
+        break;
       case 3:
+        break;
       case 4:
-      case 5:
-      case 6:*/
+        break;
     }
   }
 }
