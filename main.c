@@ -17,5 +17,10 @@ int main() {
   printf("%s\n", "(V) Vendedor");
   gets(puesto);
 
-
+  //Con este if sabremos que menú mostrar
+  if(puesto == A){
+    printf("%s\n", "TU puesto es A" );
+  }else{
+    printf("%s\n", "Tu puesto es B" );
+  }
 }
